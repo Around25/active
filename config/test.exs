@@ -8,3 +8,12 @@ config :active, Active.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Configure your database
+config :active, Active.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "active_test",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox

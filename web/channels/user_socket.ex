@@ -2,10 +2,13 @@ defmodule Active.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Active.RoomChannel
+  channel "web", Active.RoomChannel
+  channel "ios", Active.RoomChannel
+  channel "android", Active.RoomChannel
 
   ## Transports
-  transport :websocket, Phoenix.Transports.WebSocket
+  transport :websocket, Phoenix.Transports.WebSocket,
+    timeout: 10_000
   # transport :longpoll, Phoenix.Transports.LongPoll
 
   # Socket params are passed from the client and can
@@ -19,8 +22,8 @@ defmodule Active.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
-    {:ok, socket}
+  def connect(params, socket) do
+    {:ok, assign(socket, :user_id, params["user_id"])}
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
@@ -33,5 +36,5 @@ defmodule Active.UserSocket do
   #     Active.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
-  def id(_socket), do: nil
+  def id(socket), do: "user:#{socket.assigns.user_id}"
 end

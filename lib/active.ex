@@ -8,6 +8,8 @@ defmodule Active do
 
     # Define workers and child supervisors to be supervised
     children = [
+      # Start the Ecto repository
+#      supervisor(Active.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Active.Endpoint, []),
       # Start your own worker by calling: Active.Worker.start_link(arg1, arg2, arg3)

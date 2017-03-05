@@ -1491,7 +1491,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _phoenix = require("phoenix");
 
-var socket = new _phoenix.Socket("/socket", { params: { user_id: 'user_id' } });
+var socket = new _phoenix.Socket("/socket", { params: { app_id: 'ng38aNsj1', user_id: 'adqqt141' } });
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,

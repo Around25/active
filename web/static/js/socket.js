@@ -5,7 +5,7 @@
 // and connect at the socket path in "lib/my_app/endpoint.ex":
 import {Socket} from "phoenix"
 
-let socket = new Socket("/socket", {params: {user_id: 'user_id'}})
+let socket = new Socket("/socket", {params: {app_id: 'ng38aNsj1', user_id: 'adqqt141'}})
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
